@@ -8,6 +8,7 @@ jest.mock("../../src/hooks/useSearchTodos");
 describe("TodoList", () => {
   const mockToggleTodo = jest.fn();
   const mockDeleteTodo = jest.fn();
+  const mockUpdateTodo = jest.fn();
   const mockSetTodos = jest.fn();
 
   beforeEach(() => {
@@ -24,6 +25,7 @@ describe("TodoList", () => {
         todos={todos}
         deleteTodo={mockDeleteTodo}
         toggleTodo={mockToggleTodo}
+        updateTodo={mockUpdateTodo}
         setTodos={mockSetTodos}
       />
     );
@@ -39,6 +41,7 @@ describe("TodoList", () => {
         todos={todos}
         deleteTodo={mockDeleteTodo}
         toggleTodo={mockToggleTodo}
+        updateTodo={mockUpdateTodo}
         setTodos={mockSetTodos}
       />
     );
@@ -57,6 +60,7 @@ describe("TodoList", () => {
         todos={todos}
         deleteTodo={mockDeleteTodo}
         toggleTodo={mockToggleTodo}
+        updateTodo={mockUpdateTodo}
         setTodos={mockSetTodos}
       />
     );
@@ -75,6 +79,7 @@ describe("TodoList", () => {
         todos={todos}
         deleteTodo={mockDeleteTodo}
         toggleTodo={mockToggleTodo}
+        updateTodo={mockUpdateTodo}
         setTodos={mockSetTodos}
       />
     );

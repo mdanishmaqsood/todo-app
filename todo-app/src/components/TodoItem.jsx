@@ -7,9 +7,10 @@ import {
   Badge,
 } from "@chakra-ui/react";
 import { FaTrash } from "react-icons/fa";
+import { EditTodoModal } from "./EditTodoModal";
 import React from "react";
 
-export const TodoItem = ({ todo, toggleTodo, deleteTodo }) => {
+export const TodoItem = ({ todo, toggleTodo, deleteTodo, updateTodo }) => {
 
   const priorityColors = {
     low: "green",
@@ -35,7 +36,9 @@ export const TodoItem = ({ todo, toggleTodo, deleteTodo }) => {
       <Badge variant='subtle' colorScheme={priorityColor} data-testid="todo-priority">
         {todo.priority?.toUpperCase()}
       </Badge>
+      <EditTodoModal todo={todo} updateTodo={updateTodo} />
       <IconButton
+        aria-label="Delete todo"
         icon={<FaTrash />}
         isRound="true"
         onClick={() => deleteTodo(todo.id)}

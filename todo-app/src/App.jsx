@@ -14,6 +14,7 @@ function App() {
     handleAddTodo,
     handleDeleteTodo,
     handleToggleTodo,
+    handleUpdateTodo,
     handleFilterTodos
   } = useTodos();
 
@@ -33,7 +34,7 @@ function App() {
         <AddTodoModal addTodo={handleAddTodo} />
         <TodoFilters filterTodos={handleFilterTodos} />
       </HStack>
-      <TodoList todos={todos} deleteTodo={handleDeleteTodo} toggleTodo={handleToggleTodo} setTodos={setTodos} />
+      <TodoList todos={todos} deleteTodo={handleDeleteTodo} toggleTodo={handleToggleTodo} updateTodo={handleUpdateTodo} setTodos={setTodos} />
     </VStack>
   );
 }
