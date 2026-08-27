@@ -43,9 +43,10 @@ Here you can include a GIF or a set of screenshots demonstrating the application
 
 Test cases for both django and react are added and ran before the build.
 
-## Deployment
-Visit the following url to access the application
-http://52.24.215.154:5173/
+## Project Tracking
+
+Linear projects tracked in this repo:
+- Todo App
 
 ## Conclusion
 
