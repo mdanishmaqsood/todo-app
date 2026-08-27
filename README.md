@@ -24,8 +24,8 @@ Here you can include a GIF or a set of screenshots demonstrating the application
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/zeeshan-amir/to-do-app.git
-   cd to-do-app
+   git clone https://github.com/mdanishmaqsood/todo-app.git
+   cd todo-app
    ```
 
 2. Set up a virtual environment:
