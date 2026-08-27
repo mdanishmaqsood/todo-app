@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  django:
+    build: .
+    volumes:
+      - sqlite_data:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - migrator
+  migrator:
+    build: .
+    command: sh -c "python manage.py makemigrations && python manage.py migrate"
+    volumes:
+      - sqlite_data:/app
+  django_test:
+    build: .
+    command: python3 -u manage.py test
+    volumes:
+      - sqlite_data:/app
+  react:
+    build: ./todo-app
+    ports:
+      - "5173:80"
+    depends_on:
+      - django
+  react-tests:
+    build: ./todo-app
+    command: npm test
+      - ./todo-app:/app
+volumes:
+  sqlite_data:
