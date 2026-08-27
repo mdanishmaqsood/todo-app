@@ -17,6 +17,10 @@ export const toggleTodo = (id, isCompleted) => {
   });
 };
 
+export const updateTodo = (id, todo) => {
+  return axios.patch(`${BASE_URL}${TODO_ENDPOINT}/${id}/`, todo);
+};
+
 export const addTodo = (todo) => {
   return axios.post(`${BASE_URL}${TODO_ENDPOINT}/`, todo);
 };

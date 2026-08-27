@@ -14,8 +14,9 @@ React (Vite) frontend source for the Todo app: root app shell, UI components, da
 | File | Description |
 |------|-------------|
 | `AddTodoModal.jsx` | Modal form for creating a todo (title, priority, due date) with client-side validation. |
+| `EditTodoModal.jsx` | Modal form, opened via a pencil button, for editing a todo's title, priority, and due date; pre-fills from the todo, only validates the due date if it was changed, and stays open until the save request resolves. |
 | `TodoFilters.jsx` | Drawer for filtering todos by completion status, priority, and due date. |
-| `TodoItem.jsx` | Renders a single todo row with a completion checkbox, priority badge, and delete button. |
+| `TodoItem.jsx` | Renders a single todo row with a completion checkbox, priority badge, edit button (`EditTodoModal`), and delete button. |
 | `TodoList.jsx` | Renders the searchable list of todos, showing a "No Todos" state when empty. |
 
 ## hooks/
@@ -23,13 +24,13 @@ React (Vite) frontend source for the Todo app: root app shell, UI components, da
 | File | Description |
 |------|-------------|
 | `useSearchTodos.js` | Debounced hook that searches todos by title via the API and updates state. |
-| `useTodos.js` | Loads todos on mount and exposes add/delete/toggle/filter handlers, surfacing errors as toasts. |
+| `useTodos.js` | Loads todos on mount and exposes add/delete/toggle/update/filter handlers, surfacing errors as toasts; `handleUpdateTodo` returns its request promise so callers can wait for success before closing. |
 
 ## services/
 
 | File | Description |
 |------|-------------|
-| `todoServices.js` | Axios-based API client for the `/api/todos` endpoint (get, add, delete, toggle, filter, search). |
+| `todoServices.js` | Axios-based API client for the `/api/todos` endpoint (get, add, update, delete, toggle, filter, search). |
 
 ## constants/
 

@@ -3,7 +3,7 @@ import { TodoItem } from "./TodoItem";
 import { useSearchTodos } from "../hooks/useSearchTodos";
 import React from "react";
 
-export const TodoList = ({ todos, deleteTodo, toggleTodo, setTodos }) => {
+export const TodoList = ({ todos, deleteTodo, toggleTodo, updateTodo, setTodos }) => {
   const { searchTodo } = useSearchTodos(setTodos);
 
   return (
@@ -34,6 +34,7 @@ export const TodoList = ({ todos, deleteTodo, toggleTodo, setTodos }) => {
             todo={todo}
             toggleTodo={toggleTodo}
             deleteTodo={deleteTodo}
+            updateTodo={updateTodo}
           />
         ))
       )}

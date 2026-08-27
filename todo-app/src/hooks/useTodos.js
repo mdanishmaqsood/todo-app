@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useToast } from '@chakra-ui/react';
-import { getTodos, addTodo, deleteTodo, toggleTodo, filterTodos } from "../services/todoServices";
+import { getTodos, addTodo, deleteTodo, toggleTodo, updateTodo, filterTodos } from "../services/todoServices";
 
 export const useTodos = () => {
   const [todos, setTodos] = useState([]);
@@ -62,6 +62,22 @@ export const useTodos = () => {
     });
   }, [toast]);
 
+  const handleUpdateTodo = useCallback((id, todo) => {
+    return updateTodo(id, todo).then(response => {
+      setTodos(prevTodos => prevTodos.map(t => t.id === id ? response.data : t));
+      return response.data;
+    }).catch(error => {
+      toast({
+        title: "Error updating todo",
+        description: error.message || "Failed to update the todo.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+      throw error;
+    });
+  }, [toast]);
+
   const handleFilterTodos = useCallback((filters) => {
     filterTodos(filters).then(response => {
       setTodos(response.data);
@@ -87,6 +103,7 @@ export const useTodos = () => {
     handleAddTodo,
     handleDeleteTodo,
     handleToggleTodo,
+    handleUpdateTodo,
     handleFilterTodos
   };
 }
